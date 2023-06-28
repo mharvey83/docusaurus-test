@@ -17,8 +17,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            to="/docshttps://sites.google.com/simprints.com/simprints-for-developers/product-overview/intro">
+            Simprints for Developers
           </Link>
         </div>
       </div>
