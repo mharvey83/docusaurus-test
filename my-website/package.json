@@ -8,7 +8,6 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "cmd /C \"set \"GIT_USER=mharvey83\" && docusaurus deploy\"",
-    "deploy-gh-pages": "cmd /C \"set \"GIT_USER=mharvey83\" && yarn deploy\"",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
