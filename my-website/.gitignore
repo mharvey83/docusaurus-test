@@ -15,7 +15,7 @@
 .env.test.local
 .env.production.local
 .env
-.congig.json
+.config.json
 
 
 npm-debug.log*
