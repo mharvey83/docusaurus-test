@@ -85,6 +85,11 @@ const config = {
           },
         ],
       },
+      algolia: {
+        apiKey:'9fd28d72ab15e2103c4f1a2c74bab627',
+        indexName: 'Docusaurus-test',
+        appId: 'aZEVC68JVGR', // Optional, if you run the DocSearch crawler on your own
+      },
       footer: {
         style: 'dark',
         links: [
