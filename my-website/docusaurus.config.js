@@ -90,6 +90,17 @@ const config = {
         indexName: 'Docusaurus-test',
         appId: 'aZEVC68JVGR', // Optional, if you run the DocSearch crawler on your own
       },
+      themeConfig: {
+        navbar: {
+          items: [
+            // highlight-start
+            {
+              type: 'docsVersionDropdown',
+            },
+            // highlight-end
+          ],
+        },
+      },
       footer: {
         style: 'dark',
         links: [
