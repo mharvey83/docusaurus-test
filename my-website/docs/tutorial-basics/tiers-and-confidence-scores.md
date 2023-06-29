@@ -1,3 +1,8 @@
+---
+sidebar_position: 6
+---
+
+
 # Tiers & Confidence Scores
 
 Tiers & Thresholds
@@ -8,6 +13,7 @@ The **Threshold is** a project configuration done in **Simprints ID** servers, a
 
 The **Tier** is an **enum** with 5 values indicating the rankings, and can be accessed using the **getTier** method of the **Identification** or **Verification** objects.
 
+```
 public enum Tier {
 
 TIER\_1, // Almost certain match (the biometrics are very similar)
@@ -25,3 +31,14 @@ TIER\_5, // No match (the biometrics are very different)
 // accessing the value
 
 Tier tier = identification.getTier()
+```
+
+# Confidence Scores
+
+The **confidence score** is a numerical value that indicates the likelihood of a match. The returned number is dependent on the biometric modality selected. The confidence score adapts over time, as the match results become more accurate. 
+
+```
+// accessing the value
+
+float score = verification.confidence
+```

@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Enrolment
 
 What is Enrolment?
@@ -14,7 +18,7 @@ Registering a new beneficiary is the **enrolment** process in **Simprints ID**.
 Trigger Enrolment
 
 Simprints ID accepts normal Android intents as requests and you can also use **SimHelper** to streamline creating the intent. To register a new beneficiary, you need to:
-
+```
 // create an instance of **SimHelper**
 
 SimHelper simHelper = new SimHelper("Project ID", "User ID");
@@ -26,6 +30,7 @@ Intent enrolIntent = simHelper.register("Module ID");
 // trigger the **Intent** using the [**startActivityForResult**](https://developer.android.com/reference/android/app/Activity#startActivityForResult%28android.content.Intent,%20int%29) method
 
 startActivityForResult(enrolIntent, requestCode); // [r](https://developer.android.com/reference/android/app/Activity#startActivityForResult%28android.content.Intent,%20int%29)[equestCode](https://developer.android.com/reference/android/app/Activity#startActivityForResult%28android.content.Intent,%20int%29) is required for Android intents
+```
 
 Handling Enrolment Response
 
@@ -37,6 +42,7 @@ This **unique ID** should be extracted from the response and saved in your Andro
 
 The response comes via Android as part of the **onActivityResult**:
 
+```
 @Override
 
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -62,7 +68,8 @@ handleEnrolment(data);
 // check out [Handling Errors](broken-reference) page for reference
 
 }
-
+```
+```
 }
 
 import com.simprints.libsimprints.Constants;
@@ -86,7 +93,7 @@ String simprintsUniqueId = registration.getGuid();
 }
 
 }
-
+```
 Note: the properties of the [**Registration**](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2FSimprints%2FLibSimprints%2Fblob%2Fmain%2Fsrc%2Fmain%2Fjava%2Fcom%2Fsimprints%2Flibsimprints%2FRegistration.java\&sa=D\&sntz=1\&usg=AOvVaw3bX6tHm4fvJMoVyfjaAQt-) object are:
 
 * **guid** - a **String** value containing the generated unique identifier (which can be accessed through the **getGuid** method)
@@ -96,7 +103,7 @@ Handling Alternate Scenarios
 
 During the enrolment process, the biometric capture and processing might not complete due to two main reasons:
 
-1. A system/application error occurred. To read more on how to handle application errors [check here](broken-reference).
-2. The user backed out of completing the process. To read more on how to handle uncompleted workflow issues [check here](broken-reference).
+1. A system/application error occurred. To read more on how to handle application errors check here.
+2. The user backed out of completing the process. To read more on how to handle uncompleted workflow issues check here.
 
-We have a feature called **Enrolment+,** that lets you check if a beneficiary has been enrolled before making a new enrolment. To see how to implement this [check here](broken-reference).
+We have a feature called **Enrolment+,** that lets you check if a beneficiary has been enrolled before making a new enrolment. To see how to implement this check here.

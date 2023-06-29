@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Identification
 
 What is Identification?
@@ -18,7 +22,7 @@ You will need to identify this beneficiary by capturing their biometrics and run
 Trigger Identification
 
 Simprints ID accepts normal Android intents as requests and you can also use SimHelper to streamline creating the intent. The steps for triggering an Identification are:
-
+```
 // create an instance of SimHelper
 
 SimHelper simHelper = new SimHelper("Project ID", "User ID");
@@ -30,6 +34,7 @@ Intent identifyIntent = simHelper.identify("Module ID");
 // trigger the Intent using the [startActivityForResult](https://developer.android.com/reference/android/app/Activity#startActivityForResult%28android.content.Intent,%20int%29) method
 
 startActivityForResult(enrolIntent, requestCode); // [requestCode](https://developer.android.com/reference/android/app/Activity#startActivityForResult%28android.content.Intent,%20int%29) is required for Android intents
+```
 
 Handling Identification Response
 
@@ -41,8 +46,9 @@ This generated ranked list contains records with each having the following prope
 * Confidence Score - the level of confidence to which the record matches the captured biometric
 * Guid - the unique id for the biometric record
 
-Note:  The confidence and tier values can then be used to determine the ranking and accuracy for the matched biometric record. To get more info on this, [check here](broken-reference).
+Note:  The confidence and tier values can then be used to determine the ranking and accuracy for the matched biometric record. To get more info on this, check here.
 
+```
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 super.onActivityResult(requestCode, resultCode, data)
@@ -66,7 +72,8 @@ if (resultCode == Activity.RESULT\_OK) {
 }
 
 }
-
+```
+```
 import com.simprints.libsimprints.Constants;
 
 private void handleIdentification(Intent data) {
@@ -96,6 +103,7 @@ if (biometricsCompleted) {
 }
 
 }
+```
 
 Confirmation Callout - (Confirm Identity)
 
@@ -107,6 +115,7 @@ To make the confirmation callout, you would need to:
 2. Create an Intent using the confirmIdentity method on the SimHelper object
 3. Trigger the Intent for the Identification callout
 
+```
 private void onSelectBeneficiary(String selectedUserUniqueId) {
 
 &#x20;  // get the session ID, from the resulting intent
@@ -120,9 +129,11 @@ private void onSelectBeneficiary(String selectedUserUniqueId) {
 &#x20;  startActivityForResult(intent, confirmIdentityRequestCode);
 
 }
+```
 
 Sometimes the health worker might receive a list of beneficiaries but none of them is the correct beneficiary. This can happen for a couple of reasons, like if the beneficiary was not previously enrolled, or if the beneficiary was enrolled with another health worker and SimprintsID didn't download the record yet. In those situations, we advise calling apps to have a button "none of the above" that can send this special case to SimprintsID.
 
+```
 // get the session ID, from the resulting intent
 
 String sessionId = data.getString(Constants.SIMPRINTS\_SESSION\_ID,"");
@@ -132,12 +143,13 @@ String sessionId = data.getString(Constants.SIMPRINTS\_SESSION\_ID,"");
 Intent intent = simHelper.confirmIdentity(context, sessionId, "none\_selected");
 
 startActivityForResult(intent, confirmIdentityRequestCode);
+```
 
 Handling Alternate Scenarios
 
 During the identification process, the biometric capture and processing might not complete due to two main reasons:
 
-1. A system/application error occurred. To read more on how to handle application errors [check here](broken-reference).
-2. The user backed out of completing the process. To read more on how to handle uncompleted workflow issues [check here](broken-reference).
+1. A system/application error occurred. To read more on how to handle application errors check here.
+2. The user backed out of completing the process. To read more on how to handle uncompleted workflow issues check here.
 
-There is a situation when you wouldn't have a match within the list of identified beneficiaries, so might want to go ahead and enrol the last captured biometric, this feature is called Identification+. For more information on this, [check here](broken-reference).
+There is a situation when you wouldn't have a match within the list of identified beneficiaries, so might want to go ahead and enrol the last captured biometric, this feature is called Identification+. For more information on this, check here.

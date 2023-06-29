@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Integrating w/ Simprints
 
 This section contains links to information about how to integrate with **Simprints ID**, using a custom Android application. Key features and terminology that **Simprints ID** uses will also be introduced in this section.

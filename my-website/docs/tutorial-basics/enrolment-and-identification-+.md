@@ -1,3 +1,7 @@
+---
+sidebar_position: 7
+---
+
 # Enrolment & Identification +
 
 There are times during enrolment or identification when you would either find a matching biometric (for **enrolment**) or find no-matching biometric data (for **Identification**)**.** Whenever a case like this occurs, you might want to **enrol** the last captured biometric data, this process is termed **enrolment+** or **identification+**, depending on which was first initiated.
@@ -12,7 +16,7 @@ This is done to prevent potential duplicates, but if the frontline worker deems 
 
 Enrolment+ Flow
 
-* An **enrolment** is triggered from calling app ( just like you would in basic [enrolment](broken-reference))
+* An **enrolment** is triggered from calling app ( just like you would in basic enrolment)
 * **Simprints ID** captures biometric data then checks to see if matching biometrics exists:
   * If matches exist, it returns a list of potential matching candidates
   * If no matches exist, it proceeds to **register** the biometric data and return the generated **unique id**
@@ -22,6 +26,7 @@ Enrolment+ Flow
     * Presents these database records to the frontline worker, to choose the actual information of the patient
     * If the frontline worker finds no matching record, then they can choose to enrol last captured biometric data, for which **Simprints** **ID** will return a registration object containing the **unique id,** for the newly registered biometric.
 
+```
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
 super.onActivityResult(requestCode, resultCode, data);
@@ -48,7 +53,9 @@ if (data.hasExtra(Constants._SIMPRINTS\_IDENTIFICATIONS_)) {
 
 }\
 }
+```
 
+```
 // when the user has selected the beneficiary's information from the list,
 
 // the unique id should be used to trigger an [identity callout](broken-reference)
@@ -66,7 +73,9 @@ Intent intent = simHelper.confirmIdentity(context, sessionId, selectedUserUnique
 startActivityForResult(intent, confirmIdentityCode);
 
 }
+```
 
+```
 // in a case where no match was found in the candidate list,
 
 // this function can be called to trigger enrolment of last captured biometrics
@@ -86,6 +95,7 @@ Intent intent = simHelper.registerLastBiometrics("MODULE ID", sessionId);
 startActivityForResult(intent, enrolmentCode);
 
 }
+```
 
 What is Identification+ ?
 
@@ -95,7 +105,7 @@ In a case where the patient's information is not amongst the candidate list, the
 
 Identification+ Flow
 
-1. An **identification** is triggered from calling app ( just like you would in basic [identification](broken-reference))
+1. An **identification** is triggered from calling app ( just like you would in basic identification)
 2. **Simprints ID** captures biometric data then checks for potential candidates and returns them
 3. Calling app receives the result:
    * If result is a registration, calling app extracts the new **unique id**, and saves it along with the captured patient's information.
@@ -103,6 +113,7 @@ Identification+ Flow
      * Presents these database records to the frontline worker, to choose the actual information of the patient
      * If the frontline worker finds no matching record, then they can choose to enrol last captured biometric data, for which **Simprints** **ID** will return a registration object containing the **unique id,** for the newly registered biometric.
 
+```
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
 super.onActivityResult(requestCode, resultCode, data);
@@ -129,7 +140,9 @@ if (data.hasExtra(Constants._SIMPRINTS\_IDENTIFICATIONS_)) {
 
 }\
 }
+```
 
+```
 // when the user has selected the beneficiary's information from the list,
 
 // the unique id should be used to trigger an [identity callout](broken-reference)
@@ -147,7 +160,9 @@ Intent intent = simHelper.confirmIdentity(context, sessionId, selectedUserUnique
 startActivityForResult(intent, confirmIdentityCode);
 
 }
+```
 
+```
 // in a case where no match was found in the candidate list,
 
 // this function can be called to trigger enrolment of last captured biometrics
@@ -169,3 +184,4 @@ Intent intent = simHelper.registerLastBiometrics("MODULE ID", sessionId);
 startActivityForResult(intent, enrolmentCode);
 
 }
+```

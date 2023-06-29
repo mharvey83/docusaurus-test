@@ -1,5 +1,10 @@
+---
+sidebar_position: 5
+---
+
 # Exit Forms
 
+```
 @Override
 
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -49,3 +54,24 @@ tring extra = refusalForm.getExtra();
 }
 
 }
+```
+
+These are the reasons that Simprints ID can return:
+
+
+
+REFUSED_RELIGION  -  returned when the biometric capture was refused due to religious concerns
+
+REFUSED_DATA_CONCERNS  - returned when the biometric capture was refused due to personal data concerns
+
+REFUSED_PERMISSION -  returned when the beneficiary refuses permissions for biometric capture
+
+SCANNER_NOT_WORKING - returned when the fingerprint scanner is not working
+
+APP_NOT_WORKING - returned when SID app stops working during biometric capture
+
+REFUSED_NOT_PRESENT -  returned when the beneficiary to be captured is not present themselves
+
+REFUSED_YOUNG -  returned when the beneficiary to be captured is too young
+
+OTHER  -  returned when some other reason for refusal, has been provided.

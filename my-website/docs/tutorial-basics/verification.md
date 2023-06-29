@@ -1,3 +1,8 @@
+---
+sidebar_position: 4
+---
+
+
 # Verification
 
 What is Verification?
@@ -14,7 +19,7 @@ This **verification** process involves matching previously enrolled biometric da
 Trigger Verification
 
 To trigger a **verification** process, you need to do the following:
-
+```
 // get the **unique ID** from the existing beneficiary's record
 
 String verifyGuid;
@@ -31,6 +36,8 @@ Intent verificationIntent = simHelper.verify("MODULE ID", verifyGuid);
 
 startActivityForResult(verificationIntent, requestCode); // [r](https://developer.android.com/reference/android/app/Activity#startActivityForResult%28android.content.Intent,%20int%29)[equestCode](https://developer.android.com/reference/android/app/Activity#startActivityForResult%28android.content.Intent,%20int%29) is required for Android intents
 
+```
+
 Handling Verification Response
 
 During the verification process, the present beneficiary's biometrics are captured, and the **verifyGuid** which is passed in the **Intent** is used to retrieve the previously enroled beneficiary's biometrics. The two biometric records are then compared.
@@ -41,8 +48,9 @@ If this **verification** process completes successfully, a verification result c
 * **Confidence** - the percentage to which the record **matches** the captured biometric
 * **Guid -** the unique id for the biometric record
 
-Note: The **confidence** and **tier** values can then be used to determine the ranking and accuracy for the matched biometric record, to get more info on this, [check here](broken-reference).
+Note: The **confidence** and **tier** values can then be used to determine the ranking and accuracy for the matched biometric record, to get more info on this, check here.
 
+```
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 super.onActivityResult(requestCode, resultCode, data)
@@ -66,7 +74,8 @@ handleVerification(data);
 // check out [Handling Errors](broken-reference) page for reference
 
 }
-
+```
+```
 }
 
 import com.simprints.libsimprints.Constants;
@@ -92,10 +101,11 @@ float confidence = verification.getC_onfidence();_
 }
 
 }
+```
 
 Handling Alternate Scenarios
 
 During the enrolment process, the biometric capture and processing might not complete due to two main reasons:
 
-1. A system/application error occurred. To read more on how to handle application errors [check here](broken-reference).
-2. The user backed out of completing the process. To read more on how to handle uncompleted workflow issues [check here](broken-reference).
+1. A system/application error occurred. To read more on how to handle application errors check here.
+2. The user backed out of completing the process. To read more on how to handle uncompleted workflow issues check here.

@@ -1,6 +1,10 @@
+---
+sidebar_position: 1
+---
+
 # Getting Started
 
-Simprints ID is our standalone app that lets you capture biometrics for purposes of enrolment, identification and verification. You communicate with the Simprints ID using [Android intents](https://developer.android.com/guide/components/intents-filters). To see an overview of what happens [check here](broken-reference).
+Simprints ID is our standalone app that lets you capture biometrics for purposes of enrolment, identification and verification. You communicate with the Simprints ID using [Android intents](https://developer.android.com/guide/components/intents-filters). To see an overview of what happens check here.
 
 Using our open-source helper library, [LibSimprints](https://github.com/Simprints/LibSimprints), you can easily integrate Simprints ID with your custom android application. To start with the integration, you will first add the library as a dependency to your android project.
 
@@ -9,11 +13,11 @@ Installation
 NOTE:  Ensure you are installing the latest version of LibSimprints, you can check our [releases page](https://github.com/Simprints/LibSimprints/releases) for the latest version.&#x20;
 
 For Gradle:
-
+```
 implementation "com.simprints:libsimprints:2023.2.1"
-
+```
 For Maven:
-
+```
 \<dependency>
 
 \<groupId>com.simprints\</groupId>
@@ -25,7 +29,7 @@ For Maven:
 \<type>pom\</type>
 
 \</dependency>&#x20;
-
+```
 Basic Features
 
 Simprints ID supports 3 basic features: Enrolment, Identification, and Verification.
@@ -33,9 +37,9 @@ Simprints ID supports 3 basic features: Enrolment, Identification, and Verificat
 \
 
 
-1. [Enrolment](broken-reference) - this is a process that involves registering a new beneficiary, using their biometric data.
-2. [Identification](broken-reference) - this is a process that involves identifying a beneficiary from a list of matching candidates.
-3. [Verification](broken-reference) -  this involves verifying that a beneficiary is who they say they are.
+1. Enrolment - this is a process that involves registering a new beneficiary, using their biometric data.
+2. Identification - this is a process that involves identifying a beneficiary from a list of matching candidates.
+3. Verification -  this involves verifying that a beneficiary is who they say they are.
 
 Note:  any call to Simprints ID should be triggered after capturing the user's personal information, i.e. on form submission, so the last action is the biometric capture.
 
