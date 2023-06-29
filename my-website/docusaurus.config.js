@@ -30,7 +30,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'fr'],
   },
 
   presets: [
@@ -77,6 +77,12 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
+          {
+            type: 'localeDropdown',
+          },
+          {
+            type: 'docsVersionDropdown',
+          },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/Simprints',
@@ -89,17 +95,6 @@ const config = {
         apiKey:'9fd28d72ab15e2103c4f1a2c74bab627',
         indexName: 'Docusaurus-test',
         appId: 'aZEVC68JVGR', // Optional, if you run the DocSearch crawler on your own
-      },
-      themeConfig: {
-        navbar: {
-          items: [
-            // highlight-start
-            {
-              type: 'docsVersionDropdown',
-            },
-            // highlight-end
-          ],
-        },
       },
       footer: {
         style: 'dark',
@@ -157,4 +152,4 @@ const config = {
     }),
 };
 
-module.exports = config;
+module.exports =   config;
